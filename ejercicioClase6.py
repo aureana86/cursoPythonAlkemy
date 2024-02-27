@@ -1,3 +1,6 @@
+import time
+
+
 class Empleado:
     def __init__(self, dni, nombre, apellido, anioIngreso):
         self.dni = dni
@@ -53,20 +56,6 @@ class EmpleadoConSalarioFijo(Empleado):
             return self.SUELDO_BASICO * 1.1
 
 
-empleados = [
-    EmpleadoAComision(31254236, "Guido", "Lopez", 2018, clientes_captados=8),
-    EmpleadoAComision(19541285, "Carlos", "Garcia", 2019, clientes_captados=6),
-    EmpleadoAComision(92707377, "Rosa", "Diaz", 2021, clientes_captados=9),
-    EmpleadoAComision(32542872, "MOnica", "Mendez", 2019, clientes_captados=5),
-    EmpleadoAComision(33568423, "Majo", "Rios", 2021, clientes_captados=0),
-    EmpleadoAComision(24445254, "Ailin", "Silva", 2018, clientes_captados=7),
-    EmpleadoConSalarioFijo(32547215, "Joaquin", "Soto", 2017),
-    EmpleadoConSalarioFijo(30254266, "Ana", "Vidal", 2016),
-    EmpleadoConSalarioFijo(25478125, "Sofia", "Vergara", 2015),
-    EmpleadoConSalarioFijo(38510005, "Diego", "Torres", 2023),
-]
-
-
 def mostrar_salarios(empleados):
     for empleado in empleados:
         salario = empleado.calcular_salario()
@@ -88,14 +77,11 @@ def mostrar_salarios(empleados):
             adicional = empleado.mostrar_adicional()
             if clientes_captados > 0:
                 print(f"Debido a {clientes_captados} clientes"
-                      f" captados este mes,gano un adicional "
+                      f" captados este mes, gano un adicional "
                       f"de ${adicional:.2f}")
             else:
                 print("Este mes gano el salario mínimo, no capto clientes.")
         print("-" * 40)
-
-
-mostrar_salarios(empleados)
 
 
 def empleadoConMasClientes(empleados):
@@ -112,35 +98,50 @@ def empleadoConMasClientes(empleados):
     return empleado_max_clientes
 
 
+empleados = [
+    EmpleadoAComision(31254236, "Guido", "Lopez", 2018, clientes_captados=8),
+    EmpleadoAComision(19541285, "Carlos", "Garcia", 2019, clientes_captados=6),
+    EmpleadoAComision(92707377, "Rosa", "Diaz", 2021, clientes_captados=9),
+    EmpleadoAComision(32542872, "MOnica", "Mendez", 2019, clientes_captados=5),
+    EmpleadoAComision(33568423, "Majo", "Rios", 2021, clientes_captados=0),
+    EmpleadoAComision(24445254, "Ailin", "Silva", 2018, clientes_captados=7),
+    EmpleadoConSalarioFijo(32547215, "Joaquin", "Soto", 2017),
+    EmpleadoConSalarioFijo(30254266, "Ana", "Vidal", 2016),
+    EmpleadoConSalarioFijo(25478125, "Sofia", "Vergara", 2015),
+    EmpleadoConSalarioFijo(38510005, "Diego", "Torres", 2023),
+]
+
 empleado_max_clientes = empleadoConMasClientes(empleados)
 
-if empleado_max_clientes is not None:
-    print(f"Empleado con más clientes captados: "
-          f"{empleado_max_clientes.nombre} {empleado_max_clientes.apellido}")
-    print(f"Cantidad de clientes captados:"
-          f" {empleado_max_clientes.clientes_captados}")
-else:
-    print("No hay empleados con clientes captados.")
+
+def print_border():
+    print("*" * 40)
+
 
 while True:
-    print("\nMenú Principal:")
-    print("1. Ver salarios")
-    print("2. Ver Empleado del Mes")
-    print("3. Salir")
+    print("\nBIENVENIDOS A LA ADMINISTRACION")
+    print("\n********* Menu Principal *********")
+    print("\n1. Ver salarios")
+    print("\n2. Ver Empleado del Mes")
+    print("\n3. Salir")
 
-    opcion = input("Seleccione una opción (1/2/3): ")
+    opcion = input("\nSeleccione una opcion (1/2/3): ")
 
     if opcion == "1":
+        print_border()
         mostrar_salarios(empleados)
+        time.sleep(3)
     elif opcion == "2":
-        empleado_mes = empleado_max_clientes(empleados)
-        if empleado_mes is not None:
+        print_border()
+        if empleado_max_clientes is not None:
             print(f"Empleado del Mes: "
-                  f" {empleado_mes.nombre} {empleado_mes.apellido}")
-            print(f"Cantidad de clientes captados: "
-                  f"{empleado_max_clientes.clientes_captados}")
+                  f" {empleado_max_clientes.nombre} "
+                  f"{empleado_max_clientes.apellido}")
+            print(f"Cantidad de clientes captados:"
+                  f" {empleado_max_clientes.clientes_captados}")
         else:
             print("No hay Empleado del Mes.")
+        time.sleep(4)
     elif opcion == "3":
         print("Saliendo de la aplicación. ¡Hasta luego!")
         break
