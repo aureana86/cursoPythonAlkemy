@@ -143,7 +143,7 @@ while True:
             print("No hay Empleado del Mes.")
         time.sleep(4)
     elif opcion == "3":
-        print("Saliendo de la aplicación. ¡Hasta luego!")
+        print("Saliendo de la aplicacion. Hasta luego!")
         break
     else:
-        print("Opción no válida. Intente nuevamente.")
+        print("Opcion no valida. Intente nuevamente.")
