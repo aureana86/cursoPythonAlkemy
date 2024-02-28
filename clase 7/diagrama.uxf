@@ -1,1 +1,22 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level></diagram>
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>30</y><w>350</w><h>100</h></coordinates><panel_attributes>Fabrica
+--
+listaSucursales = []
+--
++ [Instrumento] listarInstrumentos()
++ [Instrumento] instrumentosPorTipo(TipoInstrumento)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>180</y><w>210</w><h>70</h></coordinates><panel_attributes>Sucursal
+--
+- nombre
+- instrumentos = []
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>100</x><y>120</y><w>50</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
+1.n</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>290</y><w>210</w><h>80</h></coordinates><panel_attributes>Instrumento
+--
+- id
+- precio
+- TipoInstrumento tipoInstrumento
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>270</y><w>160</w><h>90</h></coordinates><panel_attributes>&lt;Enum&gt;
+TipoInstrumento
+--
+- CAT1 = "Percusion"
+- CAT2 = "Viento"
+- CAT3 = "Cuerda"</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>100</x><y>240</y><w>50</w><h>70</h></coordinates><panel_attributes>lt=&lt;-
+1.n</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>310</y><w>100</w><h>50</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;30;80;10</additional_attributes></element></diagram>
