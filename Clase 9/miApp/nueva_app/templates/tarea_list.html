@@ -1,0 +1,47 @@
+{% extends 'main.html' %} {% block content %}
+<div class="container mt-4">
+  <h2 class="mb-4">Lista de Tareas</h2>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Completada</th>
+        <th scope="col">Responsable</th>
+        <th scope="col">Fecha de Inicio</th>
+        <th scope="col">Fecha de Término</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for tarea in tareas %}
+      <tr>
+        <th scope="row">{{ tarea.id }}</th>
+        <td>
+          <a href="{% url 'tarea-detail' tarea.id %}">{{ tarea.nombre }}</a>
+        </td>
+        <td>
+          {% if tarea.completada %} Completada {% else %} Pendiente {% endif %}
+        </td>
+        <td>{{ tarea.responsable }}</td>
+        <td>{{ tarea.fecha_inicio }}</td>
+        <td>{{ tarea.fecha_termino }}</td>
+        <td>
+          <a
+            href="{% url 'tarea-update' tarea.id %}"
+            class="btn btn-primary btn-sm"
+            >Editar</a
+          >
+          <a
+            href="{% url 'tarea-delete' tarea.id %}"
+            class="btn btn-danger btn-sm"
+            >Eliminar</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'tarea-create' %}" class="btn btn-success">Nueva Tarea</a>
+</div>
+{% endblock %}

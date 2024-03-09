@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block content %}
+<h2>Detalles de la Tarea</h2>
+<dl class="row">
+    <dt class="col-sm-3">Nombre:</dt>
+    <dd class="col-sm-9">{{ tarea.nombre }}</dd>
+    <dt class="col-sm-3">Completada:</dt>
+    <dd class="col-sm-9">{% if tarea.completada %}Sí{% else %}No{% endif %}</dd>
+    <dt class="col-sm-3">Responsable:</dt>
+    <dd class="col-sm-9">{{ tarea.responsable }}</dd>
+    <dt class="col-sm-3">Fecha de Inicio:</dt>
+    <dd class="col-sm-9">{{ tarea.fecha_inicio }}</dd>
+    <dt class="col-sm-3">Fecha de Término:</dt>
+    <dd class="col-sm-9">{{ tarea.fecha_termino }}</dd>
+</dl>
+<a href="{% url 'tarea-list' %}" class="btn btn-secondary">Volver a la Lista</a>
+{% endblock %}
