@@ -1,0 +1,11 @@
+<form method="post" action="">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" value="{{ estudiante.nombre }}" required>
+    <label for="edad">Edad:</label>
+    <input type="number" name="edad" value="{{ estudiante.edad }}" required>
+    <label for="promedio">Promedio:</label>
+    <input type="number" step="0.01" name="promedio" value="{{ estudiante.promedio }}" required>
+    <button type="submit">Guardar</button>
+</form>
+<a href="{% url 'lista_estudiantes' %}">Volver a la lista</a>

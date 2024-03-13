@@ -1,0 +1,4 @@
+{% for estudiante in estudiantes %}
+    <p><a href="{% url 'detalle_estudiante' estudiante.id %}">{{ estudiante.nombre }}</a></p>
+{% endfor %}
+<a href="{% url 'agregar_estudiante' %}">Agregar Estudiante</a>
