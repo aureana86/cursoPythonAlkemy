@@ -1,12 +1,13 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Tarea(models.Model):
     nombre = models.CharField(max_length=255)
     completada = models.BooleanField(default=False)
     responsable = models.CharField(max_length=255)
-    fecha_inicio = models.DateField()
-    fecha_termino = models.DateField(null=True, blank=True)
+    fecha_inicio = models.DateField(default=timezone.now)
+    fecha_termino = models.DateField(default=timezone.now)
 
     def __str__(self):
         return self.nombre
