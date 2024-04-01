@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Paciente</title>
+</head>
+<body>
+    <h1>Editar Paciente</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="{{ paciente.nombre }}"><br>
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" value="{{ paciente.apellido }}"><br>
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" name="fecha_nacimiento" value="{{ paciente.fecha_nacimiento }}"><br>
+        <label for="genero">Género:</label>
+        <input type="text" name="genero" value="{{ paciente.genero }}"><br>
+        <label for="direccion">Dirección:</label>
+        <textarea name="direccion">{{ paciente.direccion }}</textarea><br>
+        <input type="submit" value="Guardar Cambios">
+    </form>
+</body>
+</html>

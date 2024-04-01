@@ -1,0 +1,51 @@
+{% extends "main.html" %} 
+{% block title %}Categorías{% endblock %} 
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Listado de Categorías</h1>
+      <ul class="list-group">
+        {% for categoria in categorias %}
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          {{ categoria.nombre }}
+          <div class="btn-group" role="group">
+            <a
+              href="{% url 'editar_categoria' categoria.id %}"
+              class="btn btn-primary btn-sm"
+              >Editar</a
+            >
+            <form
+              action="{% url 'eliminar_categoria' categoria.id %}"
+              method="post"
+            >
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-sm">
+                Borrar
+              </button>
+            </form>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Agregar Nueva Categoría</h2>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %} {{ form.as_p }}
+            <a href="{% url 'agregar_categoria' %}" class="btn btn-primary mt-3"
+              >Agregar</a
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

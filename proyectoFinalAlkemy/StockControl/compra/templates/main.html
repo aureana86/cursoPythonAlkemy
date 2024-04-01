@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Gestor Alkemy{% endblock %}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    {% block additional_styles %}{% endblock %}
+    <style>
+      nav,
+      .offcanvas {
+        background-color: #1e293b;
+      }
+      .navbar-toggler {
+        border: none;
+      }
+      .navbar-toggler:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- MENU START  -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <!-- NAV CONTAINER START -->
+      <div class="container-fluid">
+        <a href="" class="navbar-brand text-info fw-semibold fs-4"
+          >Gestor Alkemy</a
+        >
+
+        <!-- NAV BUTTON  -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#menuLateral"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- OFFCANVAS MAIN CONTAINER START -->
+        <section
+          class="offcanvas offcanvas-start"
+          id="menuLateral"
+          tabindex="-1"
+        >
+          <div class="offcanvas-header" data-bs-theme="dark">
+            <h5 class="offcanvas-title text-info">Gestor Alkemy</h5>
+            <button
+              class="btn-close"
+              type="button"
+              aria-label="Close"
+              data-bs-dismiss="offcanvas"
+            ></button>
+          </div>
+          <!-- OFF CANVAS MENU LINKS  START-->
+          <div
+            class="offcanvas-body d-flex flex-column justify-content-between px-0"
+          >
+            <ul class="navbar-nav fs-5 justify-content-evenly">
+              <li class="nav-item p-3 py-md-1">
+                <a href="{% url 'inicio' %}" class="nav-link">Inicio</a>
+              </li>
+              <li class="nav-item p-3 py-md-1">
+                <a href="{% url 'producto_list' %}" class="nav-link"
+                  >Productos</a
+                >
+              </li>
+              <li class="nav-item p-3 py-md-1">
+                <a href="{% url 'proveedor_list' %}" class="nav-link"
+                  >Proveedores</a
+                >
+              </li>
+              <li class="nav-item p-3 py-md-1">
+                <a href="{% url 'categorias' %}" class="nav-link">Categorias</a>
+              </li>
+            </ul>
+          </div>
+          
+        </section>
+     </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+      
+    <footer class="footer mt-auto py-3 bg-light fixed-bottom">
+      <div class="container">
+        <span class="text-muted">Aplicación creada por Ana Aurelia Vidal - Comision 32 POO Python</span>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    {% block additional_scripts %}{% endblock %}
+  </body>
+</html>

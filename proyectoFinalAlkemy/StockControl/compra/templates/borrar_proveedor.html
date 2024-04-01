@@ -1,0 +1,10 @@
+{% extends "main.html" %}
+{% block title %}Confirmar Borrado de Proveedor{% endblock %}
+{% block content %}
+    <h1>¿Estás seguro que deseas borrar el proveedor "{{ proveedor.nombre }} {{ proveedor.apellido }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Borrado</button>
+        <a href="{% url 'proveedor_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

@@ -1,10 +1,11 @@
 from django.urls import path
 from . import views
 from .views import lista_estudiantes, detalle_estudiante, agregar_estudiante
-from .views import editar_estudiante, eliminar_estudiante
+from .views import editar_estudiante, eliminar_estudiante, bienvenida
 
 urlpatterns = [
     path('lista/', lista_estudiantes, name='lista_estudiantes'),
+    path('bienvenida/', bienvenida, name='bienvenida'),
     path('detalle/<int:estudiante_id>/',
          detalle_estudiante, name='detalle_estudiante'),
     path('agregar/', agregar_estudiante, name='agregar_estudiante'),

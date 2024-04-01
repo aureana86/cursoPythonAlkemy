@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+
+{% block title %}Lista de Proveedores{% endblock %}
+
+{% block content %}
+    <h1>Lista de Proveedores</h1>
+    <div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>DNI</th>
+                <th>Cuil</th>
+                <th>Celular</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proveedor in proveedores %}
+                <tr>
+                    <td>{{ proveedor.nombre }}</td>
+                    <td>{{ proveedor.apellido }}</td>
+                    <td>{{ proveedor.dni }}</td>
+                    <td>{{ proveedor.cuil }}</td>
+                    <td>{{ proveedor.celular }}</td>
+                    <td>
+                        <a href="{% url 'editar_proveedor' proveedor.id %}" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{% url 'borrar_proveedor' proveedor.id %}" class="btn btn-danger btn-sm">Borrar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'agregar_proveedor' %}" class="btn btn-success">Agregar Proveedor</a>
+{% endblock %}

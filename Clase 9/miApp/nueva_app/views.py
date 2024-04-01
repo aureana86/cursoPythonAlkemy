@@ -9,14 +9,14 @@ def inicio(request):
 
 def tarea_list(request):
     tareas = Tarea.objects.all()
-    return render(request, 'tarea_list.html',
-                  {'tareas': tareas})
+    template = 'tarea_list.html'
+    return render(request, template, {'tareas': tareas})
 
 
 def tarea_detail(request, pk):
     tarea = get_object_or_404(Tarea, pk=pk)
-    return render(request, 'tarea_detail.html',
-                  {'tarea': tarea})
+    context = {'tarea': tarea}
+    return render(request, 'tarea_detail.html', context)
 
 
 def tarea_create(request):

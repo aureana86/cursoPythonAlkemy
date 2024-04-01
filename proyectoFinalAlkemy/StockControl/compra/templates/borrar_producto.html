@@ -1,0 +1,10 @@
+{% extends "main.html" %}
+{% block title %}Confirmar Borrado de Producto{% endblock %}
+{% block content %}
+    <h1>¿Estás seguro que deseas borrar el producto "{{ producto.nombre }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Borrado</button>
+        <a href="{% url 'producto_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+
+{% block title %}Editar Categoría{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Editar Categoría</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="{{ categoria.nombre }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,4 +1,3 @@
-# nueva_app/urls.py
 from django.urls import path
 from .views import tarea_list, tarea_detail
 from .views import tarea_create, tarea_update, tarea_delete, inicio

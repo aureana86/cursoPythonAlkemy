@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+
+{% block title %}Lista de Productos{% endblock %}
+
+{% block content %}
+    <h1>Lista de Productos</h1>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Proveedor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.precio }}</td>
+                    <td>{{ producto.stock_actual }}</td>
+                    <td>{{ producto.proveedor }}</td>
+                    <td>
+                        <a href="{% url 'editar_producto' producto.id %}" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{% url 'borrar_producto' producto.id %}" class="btn btn-danger btn-sm">Borrar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="{% url 'agregar_producto' %}" class="btn btn-success">Agregar Producto</a>
+{% endblock %}
